@@ -2,13 +2,27 @@ $(document).ready(function () {
     forgetpassword();
 
     $("#btnForgetPassword").click(function () {
-        alert("密码已发送到该邮箱中，请查阅！")
+        var username = $("#username").val();
+        var email = $("#email").val();
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/fictionalfiction/forgetpassword",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({
+                username: username,
+                email: email
+            })
+        });
+        alert("密码已发送到该邮箱中，请查阅！");
+        window.location.href = "http://localhost:63340/fictionalfictionweb/login.html";
     });
 });
 
 var forgetpassword = function (key) {
     $(".navbar-nav").append("<li><a href=\"http://localhost:63340/fictionalfictionweb/index.html\">首页</a></li>\n" +
-        "                        <li><a href=\"#name\">你好，游客</a></li>\n" +
+        "                        <li><a>你好，游客</a></li>\n" +
         "                        <li><a href=\"http://localhost:63340/fictionalfictionweb/bookshelf.html\">我的书架</a></li>\n" +
         "                        <li class=\"active\"><a href=\"#forgetpassword\">忘记密码？</a></li>");
 

@@ -1,7 +1,7 @@
 $(document).ready(function () {
     if (!!$.cookie('username') && $.cookie('username') != "null") {
         $(".navbar-nav").append("<li><a href=\"http://localhost:63340/fictionalfictionweb/index.html\">首页</a></li>\n" +
-            "                        <li><a href=\"#name\">你好，"+ $.cookie('username') +"</a></li>\n" +
+            "                        <li><a>你好，"+ $.cookie('username') +"</a></li>\n" +
             "                        <li><a href=\"http://localhost:63340/fictionalfictionweb/bookshelf.html\">我的书架</a></li>\n" +
             "                        <li><a id=\"btnLogout\" href=\"#logout\">注销</a></li>");
 
@@ -11,6 +11,15 @@ $(document).ready(function () {
 
         $("#btnSearch").click(function () {
             window.location.href="http://localhost:63340/fictionalfictionweb/search.html#" + $("input").val();
+        });
+        $(document).keyup(function(event){
+            if(event.keyCode ===13){
+                if ($("input").val() === "") {
+                    alert("请输入需要搜索的小说名称！")
+                } else {
+                    $("#btnSearch").trigger("click");
+                }
+            }
         });
 
         $("#btnLogout").click(function () {
@@ -46,7 +55,7 @@ function detailsandchapter(url) {
                 "                            <em>|</em><span>" + data.data.cName + "</span>\n" +
                 "                        </p>\n" +
                 "                        <p class=\"update\" style=\"width: 50%;margin: auto;float: left;\">\n" +
-                "                            <span>最新更新：</span><a href=" + data.data.lastChapterLink + ">\n" +
+                "                            <span>最新更新：</span><a href=\"http://localhost:63340/fictionalfictionweb/content.html#"+ data.data.name +"#" + data.data.lastChapterLink + "\">\n" +
                 "                            " + data.data.lastChapter + "</a><em>·</em><span>" + data.data.lastTime + "</span>\n" +
                 "                        </p>\n" +
                 "                        <p class=\"intro\" style=\"display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 7;overflow: hidden;font-size: 17px;float: left;\">\n" +

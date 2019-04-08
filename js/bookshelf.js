@@ -5,6 +5,15 @@ $(document).ready(function () {
         $("#btnSearch").click(function () {
             window.location.href = "http://localhost:63340/fictionalfictionweb/search.html#" + $("input").val();
         });
+        $(document).keyup(function(event){
+            if(event.keyCode ===13){
+                if ($("input").val() === "") {
+                    alert("请输入需要搜索的小说名称！")
+                } else {
+                    $("#btnSearch").trigger("click");
+                }
+            }
+        });
 
         $("#btnLogout").click(function () {
             $.cookie('username', null);
@@ -27,7 +36,7 @@ $(document).ready(function () {
 
 var bookshelf = function () {
     $(".navbar-nav").append("<li><a href=\"http://localhost:63340/fictionalfictionweb/index.html\">首页</a></li>\n" +
-        "                        <li><a href=\"#name\">你好，" + $.cookie('username') + "</a></li>\n" +
+        "                        <li><a>你好，" + $.cookie('username') + "</a></li>\n" +
         "                        <li class=\"active\"><a href=\"http://localhost:63340/fictionalfictionweb/bookshelf.html\">我的书架</a></li>\n" +
         "                        <li><a id=\"btnLogout\" href=\"#logout\">注销</a></li>");
 };

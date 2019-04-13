@@ -21,6 +21,17 @@ $(document).ready(function () {
             window.location.href = "http://localhost:63340/fictionalfictionweb/login.html";
         });
 
+        // 轮播图点击事件
+        $(".first-slide").click(function () {
+            window.location.href = "http://localhost:63340/fictionalfictionweb/search.html#我才不要恋爱游戏";
+        });
+        $(".second-slide").click(function () {
+            window.location.href = "http://localhost:63340/fictionalfictionweb/search.html#转生眼中的火影世界";
+        });
+        $(".third-slide").click(function () {
+            window.location.href = "http://localhost:63340/fictionalfictionweb/search.html#退后让为师来";
+        });
+
         //初始化Table
         var oTable = new TableInit();
         oTable.Init();

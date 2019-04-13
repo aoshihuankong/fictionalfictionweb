@@ -61,7 +61,7 @@ function search(name) {
                     "                            " + data.data[i].desc + "\n" +
                     "                        </p>\n" +
                     "                        <p class=\"update\">\n" +
-                    "                            <span>最新更新：</span><a href=" + data.data[i].lastChapterLink + ">\n" +
+                    "                            <span>最新更新：</span><a href=\"http://localhost:63340/fictionalfictionweb/content.html#"+ data.data[i].name +"#" + data.data[i].lastChapterLink + "\">\n" +
                     "                                " + data.data[i].lastChapter + "</a><em>·</em><span>" + data.data[i].lastTime.split(" ")[0] + "</span>\n" +
                     "                        </p>\n" +
                     "                        <a id=\""+ i +"\" class=\"blue-btn add-book\" href=\"javascript:;\" onclick=\"addBook("+ i +")\">加入书架</a>\n" +
